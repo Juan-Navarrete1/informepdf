@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de Servicio Smartpack</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .header, .footer {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            background-color: #f2f2f2;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado del Informe -->
+    <div class="header">
+        <h1>Informe de Servicio Smartpack</h1>
+        <p>SANTIAGO: Caupolicán 9241, Bodega D, Quilicura, Santiago, Chile</p>
+        <p>Teléfono: (+56 2) 2985 1109</p>
+        <p>PUERTO MONTT: Ruta 5 Sur, Km 1012, Centro Empresarial Los Volcanes, módulo 2</p>
+        <p>Retorno La Laja, Puerto Varas, Chile</p>
+        <p>www.smartpack.cl | contacto@smartpack.cl</p>
+    </div>
+
+    <!-- Sección de Datos del Servicio -->
+    <div class="section">
+        <h2>Datos del Servicio</h2>
+        <table>
+            <tr>
+                <th>Planta</th>
+                <td><input type="text" name="planta" placeholder="Ingrese la planta"></td>
+            </tr>
+            <tr>
+                <th>Tipo de Servicio</th>
+                <td><input type="text" name="tipo_servicio" placeholder="Ingrese el tipo de servicio"></td>
+            </tr>
+            <tr>
+                <th>Descripción</th>
+                <td><textarea name="descripcion" placeholder="Descripción del servicio"></textarea></td>
+            </tr>
+            <tr>
+                <th>Modelo</th>
+                <td><input type="text" name="modelo" placeholder="Modelo"></td>
+            </tr>
+            <tr>
+                <th>N.º de Serie</th>
+                <td><input type="text" name="numero_serie" placeholder="Número de serie"></td>
+            </tr>
+            <tr>
+                <th>Resumen de Visita</th>
+                <td><textarea name="resumen_visita" placeholder="Ingrese un resumen de la visita"></textarea></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Sección de Inspección Visual Primaria -->
+    <div class="section">
+        <h2>Inspección Visual Primaria</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Elemento</th>
+                    <th>Estado</th>
+                    <th>Observación</th>
+                    <th>Recomendación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Revisión Estructural</td>
+                    <td>
+                        <select name="estado_estructura">
+                            <option value="Buen estado">Buen estado</option>
+                            <option value="Mantenimiento requerido">Mantenimiento requerido</option>
+                            <option value="Reemplazo necesario">Reemplazo necesario</option>
+                        </select>
+                    </td>
+                    <td><textarea name="observacion_estructura"></textarea></td>
+                    <td><input type="text" name="recomendacion_estructura" placeholder="Recomendación"></td>
+                </tr>
+                <tr>
+                    <td>Limpieza</td>
+                    <td>
+                        <select name="estado_limpieza">
+                            <option value="Buen estado">Buen estado</option>
+                            <option value="Mantenimiento requerido">Mantenimiento requerido</option>
+                            <option value="Reemplazo necesario">Reemplazo necesario</option>
+                        </select>
+                    </td>
+                    <td><textarea name="observacion_limpieza"></textarea></td>
+                    <td><input type="text" name="recomendacion_limpieza" placeholder="Recomendación"></td>
+                </tr>
+                <tr>
+                    <td>Estado de Cintas</td>
+                    <td>
+                        <select name="estado_cintas">
+                            <option value="Buen estado">Buen estado</option>
+                            <option value="Mantenimiento requerido">Mantenimiento requerido</option>
+                            <option value="Reemplazo necesario">Reemplazo necesario</option>
+                        </select>
+                    </td>
+                    <td><textarea name="observacion_cintas"></textarea></td>
+                    <td><input type="text" name="recomendacion_cintas" placeholder="Recomendación"></td>
+                </tr>
+                <tr>
+                    <td>Estado de Tableros de Control</td>
+                    <td>
+                        <select name="estado_tableros">
+                            <option value="Buen estado">Buen estado</option>
+                            <option value="Mantenimiento requerido">Mantenimiento requerido</option>
+                            <option value="Reemplazo necesario">Reemplazo necesario</option>
+                        </select>
+                    </td>
+                    <td><textarea name="observacion_tableros"></textarea></td>
+                    <td><input type="text" name="recomendacion_tableros" placeholder="Recomendación"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Sección de Revisión de Motores -->
+    <div class="section">
+        <h2>Revisión de Motores</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Motor</th>
+                    <th>Rodamientos</th>
+                    <th>Bujes</th>
+                    <th>Rodillos</th>
+                    <th>Observación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Motor 1</td>
+                    <td><input type="text" name="rodamientos_motor1" placeholder="Estado"></td>
+                    <td><input type="text" name="bujes_motor1" placeholder="Estado"></td>
+                    <td><input type="text" name="rodillos_motor1" placeholder="Estado"></td>
+                    <td><textarea name="observacion_motor1"></textarea></td>
+                </tr>
+                <!-- Más motores según los datos -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Sección de Puertas -->
+    <div class="section">
+        <h2>Revisión de Puertas</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Puerta</th>
+                    <th>Estado</th>
+                    <th>Observación</th>
+                    <th>Recomendación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Puerta Frontal</td>
+                    <td><input type="text" name="estado_puerta_frontal" placeholder="Estado"></td>
+                    <td><textarea name="observacion_puerta_frontal" placeholder="Observación"></textarea></td>
+                    <td><input type="text" name="recomendacion_puerta_frontal" placeholder="Recomendación"></td>
+                </tr>
+                <tr>
+                    <td>Puerta Trasera</td>
+                    <td><input type="text" name="estado_puerta_trasera" placeholder="Estado"></td>
+                    <td><textarea name="observacion_puerta_trasera" placeholder="Observación"></textarea></td>
+                    <td><input type="text" name="recomendacion_puerta_trasera" placeholder="Recomendación"></td>
+                </tr>
+                <tr>
+                    <td>Puerta de Entrada 1</td>
+                    <td><input type="text" name="estado_puerta_entrada1" placeholder="Estado"></td>
+                    <td><textarea name="observacion_puerta_entrada1" placeholder="Observación"></textarea></td>
+                    <td><input type="text" name="recomendacion_puerta_entrada1" placeholder="Recomendación"></td>
+                </tr>
+                <!-- Más puertas según los datos -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Sección de Inspección de Seguridad -->
+    <div class="section">
+        <h2>Inspección de Seguridad</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Elemento</th>
+                    <th>Estado</th>
+                    <th>Observación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Safety Relay</td>
+                    <td><input type="text" name="estado_safety_relay" placeholder="Estado"></td>
+                    <td><textarea name="observacion_safety_relay" placeholder="Observación"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Parada de Emergencia</td>
+                    <td><input type="text" name="estado_parada_emergencia" placeholder="Estado"></td>
+                    <td><textarea name="observacion_parada_emergencia" placeholder="Observación"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Pulsadores</td>
+                    <td><input type="text" name="estado_pulsadores" placeholder="Estado"></td>
+                    <td><textarea name="observacion_pulsadores" placeholder="Observación"></textarea></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

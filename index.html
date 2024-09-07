@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de Servicio Smartpack</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .header, .footer {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            background-color: #f2f2f2;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 100px;
+        }
+        img {
+            max-width: 200px;
+            margin-top: 10px;
+        }
+        .submit-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .submit-button input {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado del Informe -->
+    <div class="header">
+        <h1>Informe de Servicio Smartpack</h1>
+        <p>SANTIAGO: Caupolicán 9241, Bodega D, Quilicura, Santiago, Chile, Teléfono: (+56 2) 2985 1109</p>
+        <p>PUERTO MONTT: Ruta 5 Sur, Km 1012, Centro Empresarial Los Volcanes, módulo 2, Puerto Varas, Chile</p>
+        <p>www.smartpack.cl | contacto@smartpack.cl</p>
+    </div>
+
+    <!-- Sección de Datos del Servicio -->
+    <div class="section">
+        <h2>Datos del Servicio</h2>
+        <table>
+            <tr>
+                <th>Planta</th>
+                <td><input type="text" name="planta" placeholder="Ingrese la planta"></td>
+            </tr>
+            <tr>
+                <th>Tipo de Servicio</th>
+                <td><input type="text" name="tipo_servicio" placeholder="Ingrese el tipo de servicio"></td>
+            </tr>
+            <tr>
+                <th>Descripción</th>
+                <td><textarea name="descripcion" placeholder="Descripción del servicio"></textarea></td>
+            </tr>
+            <tr>
+                <th>Modelo</th>
+                <td><input type="text" name="modelo" placeholder="Modelo"></td>
+            </tr>
+            <tr>
+                <th>N.º de Serie</th>
+                <td><input type="text" name="numero_serie" placeholder="Número de serie"></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Sección de Inspección Visual Primaria -->
+    <div class="section">
+        <h2>Inspección Visual Primaria</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Elemento</th>
+                    <th>Estado</th>
+                    <th>Observación</th>
+                    <th>Recomendación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Revisión Estructural</td>
+                    <td>
+                        <select name="estado_estructura">
+                            <option value="Buen estado">Buen estado</option>
+                            <option value="Mantenimiento requerido">Mantenimiento requerido</option>
+                            <option value="Reemplazo necesario">Reemplazo necesario</option>
+                        </select>
+                    </td>
+                    <td><textarea name="observacion_estructura"></textarea></td>
+                    <td><input type="text" name="recomendacion_estructura" placeholder="Recomendación"></td>
+                </tr>
+                <tr>
+                    <td>Limpieza</td>
+                    <td>
+                        <select name="estado_limpieza">
+                            <option value="Buen estado">Buen estado</option>
+                            <option value="Mantenimiento requerido">Mantenimiento requerido</option>
+                            <option value="Reemplazo necesario">Reemplazo necesario</option>
+                        </select>
+                    </td>
+                    <td><textarea name="observacion_limpieza"></textarea></td>
+                    <td><input type="text" name="recomendacion_limpieza" placeholder="Recomendación"></td>
+                </tr>
+                <!-- Más filas según los datos -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Sección de Componentes Analizados -->
+    <div class="section">
+        <h2>Componentes Analizados</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Componente</th>
+                    <th>Temperatura (°C)</th>
+                    <th>Rango de Trabajo (°C)</th>
+                    <th>Máximo (°C)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Contactor</td>
+                    <td><input type="number" name="temp_contactor" placeholder="Temperatura"></td>
+                    <td><input type="number" name="rango_contactor" placeholder="Rango de trabajo"></td>
+                    <td><input type="number" name="max_contactor" placeholder="Máximo"></td>
+                </tr>
+                <tr>
+                    <td>Rele de estado sólido</td>
+                    <td><input type="number" name="temp_rele" placeholder="Temperatura"></td>
+                    <td><input type="number" name="rango_rele" placeholder="Rango de trabajo"></td>
+                    <td><input type="number" name="max_rele" placeholder="Máximo"></td>
+                </tr>
+                <tr>
+                    <td>Safety Relay</td>
+                    <td><input type="number" name="temp_safety_relay" placeholder="Temperatura"></td>
+                    <td><input type="number" name="rango_safety_relay" placeholder="Rango de trabajo"></td>
+                    <td><input type="number" name="max_safety_relay" placeholder="Máximo"></td>
+                </tr>
+                <!-- Más filas según los datos -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Sección de Revisión de Motores -->
+    <div class="section">
+        <h2>Revisión de Motores</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Motor</th>
+                    <th>Rodamientos</th>
+                    <th>Bujes</th>
+                    <th>Rodillos</th>
+                    <th>Observación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Motor 1</td>
+                    <td><input type="text" name="rodamientos_motor1" placeholder="Estado"></td>
+                    <td><input type="text" name="bujes_motor1" placeholder="Estado"></td>
+                    <td><input type="text" name="rodillos_motor1" placeholder="Estado"></td>
+                    <td><textarea name="observacion_motor1"></textarea></td>
+                </tr>
+                <!-- Agregar más motores según sea necesario -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Sección de Safety Relay -->
+    <div class="section">
+        <h2>Safety Relay</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Componente</th>
+                    <th>Estado</th>
+                    <th>Observación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Safety Relay 1</td>
+                    <td>
+                        <select name="estado_safety_relay1">
+                            <option value="Operativo">Operativo</option>
+                            <option value="No operativo">No operativo</option>
+                        </select>
+                    </td>
+                    <td><textarea name="observacion_safety_relay1"></textarea></td>
+                </tr>
+                <!-- Agregar más Safety Relays según sea necesario -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Sección de Listado de Repuestos -->
+    <div class="section">
+        <h2>Listado de Repuestos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Zona N°</th>
+                    <th>Descripción</th>
+                    <th>Stock Code</th>
+                    <th>Cantidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Zona 1</td>
+                    <td><input type="text" name="descripcion_repuesto1" placeholder="Descripción"></td>
+                    <td><input type="text" name="stockcode_repuesto1" placeholder="Stock Code"></td>
+                    <td><input type="number" name="cantidad_repuesto1" placeholder="Cantidad"></td>
+                </tr>
+                <!-- Agregar más repuestos según sea necesario -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Sección para Insertar Imágenes y Visualizarlas -->
+    <div class="section">
+        <h2>Registro Fotográfico</h2>
+        <p>Por favor, suba las imágenes correspondientes al informe:</p>
+
+        <label for="image1">Imagen 1:</label>
+        <input type="file" id="image1" accept="image/*" onchange="previewImage(event, 'imgPreview1')">
+        <img id="imgPreview1"><br><br>
+
+        <label for="image2">Imagen 2:</label>
+        <input type="file" id="image2" accept="image/*" onchange="previewImage(event, 'imgPreview2')">
+        <img id="imgPreview2"><br><br>
+
+        <label for="image3">Imagen 3:</label>
+        <input type="file" id="image3" accept="image/*" onchange="previewImage(event, 'imgPreview3')">
+        <img id="imgPreview3"><br><br>
+    </div>
+
+    <!-- Sección de Fotografía Termográfica -->
+    <div class="section">
+        <h2>Fotografía Termográfica</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Componente</th>
+                    <th>Temperatura (°C)</th>
+                    <th>Rango de Trabajo (°C)</th>
+                    <th>Máximo (°C)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Contactor</td>
+                    <td><input type="number" name="temp_contactor_termografia" placeholder="Temperatura"></td>
+                    <td><input type="number" name="rango_contactor_termografia" placeholder="Rango de trabajo"></td>
+                    <td><input type="number" name="max_contactor_termografia" placeholder="Máximo"></td>
+                </tr>
+                <!-- Más filas según los datos -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Sección de Observaciones Generales -->
+    <div class="section">
+        <h2>Observaciones Generales</h2>
+        <textarea name="observacion_general" placeholder="Observaciones generales"></textarea>
+    </div>
+
+    <!-- Botón para Enviar el Informe -->
+    <div class="submit-button">
+        <input type="submit" value="Enviar Informe">
+    </div>
+
+    <div class="footer">
+        <p>www.smartpack.cl | contacto@smartpack.cl</p>
+    </div>
+
+    <script>
+        // Función para mostrar vista previa de la imagen
+        function previewImage(event, imgElementId) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById(imgElementId);
+                output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+
+</body>
+</html>
