@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de Servicio Smartpack - Página 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            max-width: 850px; /* Ajuste para formato carta */
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+        .header, .footer {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section {
+            margin-bottom: 30px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .section h2 {
+            background-color: #f2f2f2;
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+            margin: -20px -20px 20px -20px;
+            border-radius: 5px 5px 0 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            width: 30%;
+        }
+        td {
+            width: 70%;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 2px; /* Ajusta el padding para hacerlo más delgado */
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 30px; /* Ajusta la altura para hacerlo más delgado */
+            resize: none; /* Desactiva el redimensionamiento del textarea */
+            font-size: 10px; /* Ajusta el tamaño de la fuente */
+            text-align: left; /* Alinea el texto a la izquierda */
+            padding-left: 4px; /* Añade espacio desde el borde izquierdo */
+        }
+        .image-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .image-container {
+            width: 100%;
+            max-width: 300px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            overflow: hidden;
+            position: relative;
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .image-container label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        .image-input {
+            display: none;
+        }
+        .text-area-wrapper {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 5px; /* Ajusta el padding para hacerlo más delgado */
+            background-color: #f9f9f9;
+            width: 100%;
+            max-width: calc(100% - 40px);
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+        .nav-button {
+            display: block;
+            width: 150px;
+            padding: 10px;
+            margin: 20px auto;
+            text-align: center;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .nav-button:hover {
+            background-color: #0056b3;
+        }
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+            }
+            @page {
+                size: 8.5in 11in;
+                margin: 1in;
+            }
+            .header, .footer {
+                margin-bottom: 0;
+            }
+        }
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 24px;
+            }
+            .section h2 {
+                font-size: 20px;
+            }
+            .nav-button {
+                width: 100%;
+                font-size: 14px;
+            }
+        }
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 20px;
+            }
+            .section h2 {
+                font-size: 18px;
+            }
+            .text-area-wrapper {
+                width: 100%;
+                padding: 5px;
+                box-sizing: border-box;
+            }
+            .nav-button {
+                width: 100%;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado del Informe -->
+    <div class="header">
+        <h1>Informe de Servicio Smartpack</h1>
+        <p>SANTIAGO: Caupolicán 9241, Bodega D, Quilicura, Santiago, Chile</p>
+        <p>Teléfono: (+56 2) 2985 1109</p>
+        <p>PUERTO MONTT: Ruta 5 Sur, Km 1012, Centro Empresarial Los Volcanes, módulo 2</p>
+        <p>Retorno La Laja, Puerto Varas, Chile</p>
+        <p>www.smartpack.cl | contacto@smartpack.cl</p>
+    </div>
+
+    <!-- Sección de Datos del Servicio -->
+    <div class="section">
+        <h2>Datos del Servicio</h2>
+        <table>
+            <tr>
+                <th>Planta</th>
+                <td><input type="text" name="planta" placeholder="Ingrese la planta"></td>
+            </tr>
+            <tr>
+                <th>Tipo de Servicio</th>
+                <td><input type="text" name="tipo_servicio" placeholder="Ingrese el tipo de servicio"></td>
+            </tr>
+            <tr>
+                <th>Fecha</th>
+                <td><input type="date" name="fecha_servicio"></td>
+            </tr>
+            <tr>
+                <th>Descripción</th>
+                <td><textarea name="descripcion" placeholder="Descripción del servicio"></textarea></td>
+            </tr>
+            <tr>
+                <th>Modelo</th>
+                <td><input type="text" name="modelo" placeholder="Modelo"></td>
+            </tr>
+            <tr>
+                <th>N.º de Serie</th>
+                <td><input type="text" name="numero_serie" placeholder="Número de serie"></td>
+            </tr>
+            <tr>
+                <th>Resumen de Visita</th>
+                <td><textarea name="resumen_visita" placeholder="Ingrese un resumen de la visita"></textarea></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Sección de Inserción de Imágenes -->
+    <div class="section">
+        <h2>Insertar Imagen</h2>
+        <div class="image-wrapper">
+            <div class="image-container">
+                <label for="imageInput">
+                    <input type="file" accept="image/*" id="imageInput" onchange="previewImage(event)" class="image-input">
+                    <img id="imagePreview" alt="Previsualización de la imagen">
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Entrada de Texto -->
+    <div class="section">
+        <textarea name="texto_adicional" placeholder="Ingrese texto adicional aquí..." class="text-area-wrapper"></textarea>
+    </div>
+
+    <!-- Botón de Navegación a la Página 2 -->
+    <a href="pagina2.html" class="nav-button">Página 2</a>
+
+    <!-- Script para previsualización de la imagen -->
+    <script>
+        function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById('imagePreview');
+                output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+    
+</body>
+</html>
