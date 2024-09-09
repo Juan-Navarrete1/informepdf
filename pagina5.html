@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 5 - Reporte</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th, td {
+            font-size: 16px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .observacion {
+            border: 1px solid black;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+
+        .dropdown, .text-input {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        .textarea-input {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid black;
+            resize: none;
+        }
+
+        /* Estilos para el botón */
+        .button-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilos específicos para pantallas más pequeñas (móviles) */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 22px;
+            }
+
+            th, td {
+                font-size: 14px;
+            }
+
+            .textarea-input {
+                height: 80px;
+            }
+
+            .contact-info p {
+                font-size: 12px;
+            }
+        }
+
+        /* Estilos específicos para pantallas muy pequeñas (móviles más pequeños) */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 20px;
+            }
+
+            th, td {
+                font-size: 12px;
+                padding: 5px;
+            }
+
+            .textarea-input {
+                height: 60px;
+            }
+
+            .contact-info p {
+                font-size: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Reporte Diagnóstico</h1>
+
+    <div class="section-title">Revisión de componentes</div>
+
+    <table>
+        <tr>
+            <th>Componente</th>
+            <th>Detalle Diagnóstico</th>
+            <th>Acción Correctiva</th>
+            <th>Observación</th>
+        </tr>
+        <!-- Fila 1 -->
+        <tr>
+            <td>
+                <select class="dropdown">
+                    <option>Actuador de sello</option>
+                    <option>Pantalla HMI 1</option>
+                    <option>Pantalla HMI 2</option>
+                    <option>Pantalla HMI 3</option>
+                    <option>Pantalla HMI 4</option>
+                    <option>Pantalla HMI 5</option>
+                    <option>Pantalla HMI 6</option>
+                    <option>Pantalla HMI 7</option>
+                    <option>Pantalla HMI 8</option>
+                </select>
+            </td>
+            <td><select class="dropdown"><option>Sin detalle</option></select></td>
+            <td><select class="dropdown"><option>No aplica</option></select></td>
+            <td><input type="text" class="text-input" value="ads,klnjkfwa"></td>
+        </tr>
+        <!-- Fila 2 -->
+        <tr>
+            <td>
+                <select class="dropdown">
+                    <option>Actuador de sello</option>
+                    <option>Pantalla HMI 1</option>
+                    <option>Pantalla HMI 2</option>
+                    <option>Pantalla HMI 3</option>
+                    <option>Pantalla HMI 4</option>
+                    <option>Pantalla HMI 5</option>
+                    <option>Pantalla HMI 6</option>
+                    <option>Pantalla HMI 7</option>
+                    <option>Pantalla HMI 8</option>
+                </select>
+            </td>
+            <td><select class="dropdown"><option>Sin detalle</option></select></td>
+            <td><select class="dropdown"><option>No aplica</option></select></td>
+            <td><input type="text" class="text-input"></td>
+        </tr>
+        <!-- Fila 3 -->
+        <tr>
+            <td>
+                <select class="dropdown">
+                    <option>Actuador de sello</option>
+                    <option>Pantalla HMI 1</option>
+                    <option>Pantalla HMI 2</option>
+                    <option>Pantalla HMI 3</option>
+                    <option>Pantalla HMI 4</option>
+                    <option>Pantalla HMI 5</option>
+                    <option>Pantalla HMI 6</option>
+                    <option>Pantalla HMI 7</option>
+                    <option>Pantalla HMI 8</option>
+                </select>
+            </td>
+            <td><select class="dropdown"><option>Sin detalle</option></select></td>
+            <td><select class="dropdown"><option>No aplica</option></select></td>
+            <td><input type="text" class="text-input"></td>
+        </tr>
+        <!-- Fila 4 -->
+        <tr>
+            <td>
+                <select class="dropdown">
+                    <option>Actuador de sello</option>
+                    <option>Pantalla HMI 1</option>
+                    <option>Pantalla HMI 2</option>
+                    <option>Pantalla HMI 3</option>
+                    <option>Pantalla HMI 4</option>
+                    <option>Pantalla HMI 5</option>
+                    <option>Pantalla HMI 6</option>
+                    <option>Pantalla HMI 7</option>
+                    <option>Pantalla HMI 8</option>
+                </select>
+            </td>
+            <td><select class="dropdown"><option>Sin detalle</option></select></td>
+            <td><select class="dropdown"><option>No aplica</option></select></td>
+            <td><input type="text" class="text-input"></td>
+        </tr>
+        <!-- Fila 5 -->
+        <tr>
+            <td>
+                <select class="dropdown">
+                    <option>Actuador de sello</option>
+                    <option>Pantalla HMI 1</option>
+                    <option>Pantalla HMI 2</option>
+                    <option>Pantalla HMI 3</option>
+                    <option>Pantalla HMI 4</option>
+                    <option>Pantalla HMI 5</option>
+                    <option>Pantalla HMI 6</option>
+                    <option>Pantalla HMI 7</option>
+                    <option>Pantalla HMI 8</option>
+                </select>
+            </td>
+            <td><select class="dropdown"><option>Sin detalle</option></select></td>
+            <td><select class="dropdown"><option>No aplica</option></select></td>
+            <td><input type="text" class="text-input"></td>
+        </tr>
+        <!-- Fila 6 -->
+        <tr>
+            <td>
+                <select class="dropdown">
+                    <option>Actuador de sello</option>
+                    <option>Pantalla HMI 1</option>
+                    <option>Pantalla HMI 2</option>
+                    <option>Pantalla HMI 3</option>
+                    <option>Pantalla HMI 4</option>
+                    <option>Pantalla HMI 5</option>
+                    <option>Pantalla HMI 6</option>
+                    <option>Pantalla HMI 7</option>
+                    <option>Pantalla HMI 8</option>
+                </select>
+            </td>
+            <td><select class="dropdown"><option>Sin detalle</option></select></td>
+            <td><select class="dropdown"><option>No aplica</option></select></td>
+            <td><input type="text" class="text-input"></td>
+        </tr>
+        <!-- Fila 7 -->
+        <tr>
+            <td>
+                <select class="dropdown">
+                    <option>Actuador de sello</option>
+                    <option>Pantalla HMI 1</option>
+                    <option>Pantalla HMI 2</option>
+                    <option>Pantalla HMI 3</option>
+                    <option>Pantalla HMI 4</option>
+                    <option>Pantalla HMI 5</option>
+                    <option>Pantalla HMI 6</option>
+                    <option>Pantalla HMI 7</option>
+                    <option>Pantalla HMI 8</option>
+                </select>
+            </td>
+            <td><select class="dropdown"><option>Sin detalle</option></select></td>
+            <td><select class="dropdown"><option>No aplica</option></select></td>
+            <td><input type="text" class="text-input"></td>
+        </tr>
+        <!-- Fila 8 -->
+        <tr>
+            <td>
+                <select class="dropdown">
+                    <option>Actuador de sello</option>
+                    <option>Pantalla HMI 1</option>
+                    <option>Pantalla HMI 2</option>
+                    <option>Pantalla HMI 3</option>
+                    <option>Pantalla HMI 4</option>
+                    <option>Pantalla HMI 5</option>
+                    <option>Pantalla HMI 6</option>
+                    <option>Pantalla HMI 7</option>
+                    <option>Pantalla HMI 8</option>
+                </select>
+            </td>
+            <td><select class="dropdown"><option>Sin detalle</option></select></td>
+            <td><select class="dropdown"><option>No aplica</option></select></td>
+            <td><input type="text" class="text-input"></td>
+        </tr>
+    </table>
+
+    <div class="observacion">
+        <strong>Observación general:</strong> <br>
+        <textarea class="textarea-input" placeholder="Ingrese observaciones aquí"></textarea>
+    </div>
+
+    <div class="contact-info">
+        <p><strong>SANTIAGO:</strong> Caupolicán 1924, Bodega D, Quilicura, Santiago, Chile. Teléfono: (+56 2) 2985 1109</p>
+        <p><strong>PUERTO MONTT:</strong> Ruta 5 Sur, Km 1012, Centro Empresarial Los Volcanes, módulo 2, Retorno La Laja, Puerto Varas, Chile</p>
+        <p><a href="http://www.smartpack.cl">www.smartpack.cl</a> | e-mail: contacto@smartpack.cl</p>
+    </div>
+
+    <!-- Botón centrado para navegar a Página 4 -->
+    <div class="button-container">
+        <a href="pagina4.html" class="btn">Volver a Página 4</a>
+    </div>
+
+</body>
+</html>
