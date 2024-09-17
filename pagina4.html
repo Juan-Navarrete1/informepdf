@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotografía Termográficas</title>
+    <style>
+        @media print {
+            @page {
+                size: A4;
+                margin: 0;
+            }
+
+            body {
+                background-color: #292929;
+                color: #ececec;
+                max-width: 100%;
+                padding: 0;
+                margin: 0;
+            }
+
+            .pagina4-buttons, .pagina4-contact-info {
+                display: none !important;
+            }
+
+            .pagina4-content {
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #292929;
+            color: #ececec;
+        }
+
+        .pagina4-h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #f39c12;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pagina4-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .pagina4-table, .pagina4-th, .pagina4-td {
+            border: 1px solid #f39c12;
+        }
+
+        .pagina4-th {
+            background-color: #f39c12;
+            color: #292929;
+            padding: 10px;
+            text-align: center;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+
+        .pagina4-td {
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            background-color: #333;
+            color: #ececec;
+        }
+
+        .pagina4-input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            text-align: center;
+            border-radius: 4px;
+            border: 1px solid #555;
+            background-color: #444;
+            color: #ececec;
+            font-size: 14px;
+        }
+
+        .pagina4-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .pagina4-item {
+            text-align: center;
+            border: 1px solid #555;
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 8px;
+            background-color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .pagina4-image-box {
+            height: 100px;
+            border: 2px dashed #f39c12;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+            cursor: pointer;
+            border-radius: 8px;
+            background-color: #444;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .pagina4-image-box:hover {
+            background-color: #555;
+            border-color: #f39c12;
+        }
+
+        .pagina4-image-box img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 4px;
+        }
+
+        .pagina4-label {
+            padding: 6px;
+            background-color: #f39c12;
+            color: #292929;
+            font-weight: bold;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .pagina4-input[type="file"] {
+            display: none;
+        }
+
+        .pagina4-observacion {
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px solid #f39c12;
+            background-color: #333;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .pagina4-observacion textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border-radius: 4px;
+            border: 1px solid #555;
+            background-color: #444;
+            color: #ececec;
+            font-size: 14px;
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .pagina4-contact-info {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .pagina4-contact-info a {
+            color: #f39c12;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .pagina4-contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .pagina4-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .pagina4-buttons a, .pagina4-buttons button {
+            text-decoration: none;
+            background-color: #f39c12;
+            color: #292929;
+            padding: 10px 18px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .pagina4-buttons a:hover, .pagina4-buttons button:hover {
+            background-color: #e0a800;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .pagina4-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pagina4-container {
+                grid-template-columns: 1fr;
+            }
+
+            .pagina4-h1 {
+                font-size: 20px;
+            }
+
+            .pagina4-th, .pagina4-td {
+                font-size: 12px;
+                padding: 8px;
+            }
+
+            .pagina4-image-box {
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="pagina4-h1">Fotografía Termográficas</h1>
+
+    <form class="pagina4-content">
+        <table class="pagina4-table">
+            <tr>
+                <th class="pagina4-th">Componentes analizados</th>
+                <th class="pagina4-th">Temperatura °C</th>
+                <th class="pagina4-th">Rango de trabajo Máximo °C</th>
+            </tr>
+            <tr>
+                <td class="pagina4-td">Contactor</td>
+                <td class="pagina4-td"><input class="pagina4-input" type="text" name="temp1" placeholder="Ingrese la temperatura"></td>
+                <td class="pagina4-td"><input class="pagina4-input" type="text" name="range1" value="75°C"></td>
+            </tr>
+            <tr>
+                <td class="pagina4-td">Relé de estado sólido</td>
+                <td class="pagina4-td"><input class="pagina4-input" type="text" name="temp2" placeholder="Ingrese la temperatura"></td>
+                <td class="pagina4-td"><input class="pagina4-input" type="text" name="range2" value="50°C"></td>
+            </tr>
+            <tr>
+                <td class="pagina4-td">Servo amplificador</td>
+                <td class="pagina4-td"><input class="pagina4-input" type="text" name="temp3" placeholder="Ingrese la temperatura"></td>
+                <td class="pagina4-td"><input class="pagina4-input" type="text" name="range3" value="70°C"></td>
+            </tr>
+            <tr>
+                <td class="pagina4-td">Safety relay</td>
+                <td class="pagina4-td"><input class="pagina4-input" type="text" name="temp4" placeholder="Ingrese la temperatura"></td>
+                <td class="pagina4-td"><input class="pagina4-input" type="text" name="range4" value="55°C"></td>
+            </tr>
+            <tr>
+                <td class="pagina4-td">VDF</td>
+                <td class="pagina4-td"><input class="pagina4-input" type="text" name="temp5" placeholder="Ingrese la temperatura"></td>
+                <td class="pagina4-td"><input class="pagina4-input" type="text" name="range5" value="70°C"></td>
+            </tr>
+            <tr>
+                <td class="pagina4-td">PLC</td>
+                <td class="pagina4-td"><input class="pagina4-input" type="text" name="temp6" placeholder="Ingrese la temperatura"></td>
+                <td class="pagina4-td"><input class="pagina4-input" type="text" name="range6" value="55°C"></td>
+            </tr>
+            <tr>
+                <td class="pagina4-td">Relé 24 VDC</td>
+                <td class="pagina4-td"><input class="pagina4-input" type="text" name="temp7" placeholder="Ingrese la temperatura"></td>
+                <td class="pagina4-td"><input class="pagina4-input" type="text" name="range7" value="70°C"></td>
+            </tr>
+            <tr>
+                <td class="pagina4-td">Power Supply</td>
+                <td class="pagina4-td"><input class="pagina4-input" type="text" name="temp8" placeholder="Ingrese la temperatura"></td>
+                <td class="pagina4-td"><input class="pagina4-input" type="text" name="range8" value="70°C"></td>
+            </tr>
+        </table>
+    </form>
+
+    <div class="pagina4-container pagina4-content">
+        <div class="pagina4-item">
+            <div class="pagina4-image-box" onclick="document.getElementById('file1').click();">
+                <input class="pagina4-input" type="file" id="file1" accept="image/*" onchange="loadImage(event, 'img1')">
+                <img id="img1" src="" alt="Contactor">
+            </div>
+            <div class="pagina4-label">Contactor</div>
+        </div>
+        <div class="pagina4-item">
+            <div class="pagina4-image-box" onclick="document.getElementById('file2').click();">
+                <input class="pagina4-input" type="file" id="file2" accept="image/*" onchange="loadImage(event, 'img2')">
+                <img id="img2" src="" alt="Relé de Estado Sólido">
+            </div>
+            <div class="pagina4-label">Relé de Estado Sólido</div>
+        </div>
+        <div class="pagina4-item">
+            <div class="pagina4-image-box" onclick="document.getElementById('file3').click();">
+                <input class="pagina4-input" type="file" id="file3" accept="image/*" onchange="loadImage(event, 'img3')">
+                <img id="img3" src="" alt="Servo Amplificador">
+            </div>
+            <div class="pagina4-label">Servo Amplificador</div>
+        </div>
+        <div class="pagina4-item">
+            <div class="pagina4-image-box" onclick="document.getElementById('file4').click();">
+                <input class="pagina4-input" type="file" id="file4" accept="image/*" onchange="loadImage(event, 'img4')">
+                <img id="img4" src="" alt="Safety Relay">
+            </div>
+            <div class="pagina4-label">Safety Relay</div>
+        </div>
+
+        <!-- Segundo bloque de imágenes con etiquetas -->
+        <div class="pagina4-item">
+            <div class="pagina4-image-box" onclick="document.getElementById('file5').click();">
+                <input class="pagina4-input" type="file" id="file5" accept="image/*" onchange="loadImage(event, 'img5')">
+                <img id="img5" src="" alt="VDF">
+            </div>
+            <div class="pagina4-label">VDF</div>
+        </div>
+        <div class="pagina4-item">
+            <div class="pagina4-image-box" onclick="document.getElementById('file6').click();">
+                <input class="pagina4-input" type="file" id="file6" accept="image/*" onchange="loadImage(event, 'img6')">
+                <img id="img6" src="" alt="PLC">
+            </div>
+            <div class="pagina4-label">PLC</div>
+        </div>
+        <div class="pagina4-item">
+            <div class="pagina4-image-box" onclick="document.getElementById('file7').click();">
+                <input class="pagina4-input" type="file" id="file7" accept="image/*" onchange="loadImage(event, 'img7')">
+                <img id="img7" src="" alt="Relé 24 VDC">
+            </div>
+            <div class="pagina4-label">Relé 24 VDC</div>
+        </div>
+        <div class="pagina4-item">
+            <div class="pagina4-image-box" onclick="document.getElementById('file8').click();">
+                <input class="pagina4-input" type="file" id="file8" accept="image/*" onchange="loadImage(event, 'img8')">
+                <img id="img8" src="" alt="Power Supply">
+            </div>
+            <div class="pagina4-label">Power Supply</div>
+        </div>
+    </div>
+
+    <div class="pagina4-observacion pagina4-content">
+        <label for="observaciones">Observaciones:</label>
+        <textarea id="observaciones" rows="5" placeholder="Ingrese sus observaciones"></textarea>
+    </div>
+
+    <div class="pagina4-buttons no-print">
+        <a href="#" onclick="window.print(); return false;">Imprimir</a>
+        <a href="#" id="generate-pdf">Generar PDF</a>
+        <a href="pagina3.html">Ir a Página 3</a>
+        <a href="pagina5.html">Ir a Página 5</a>
+        <button onclick="logout()">Cerrar Sesión</button>
+    </div>
+
+    <div class="pagina4-contact-info">
+        <p>Si necesitas ayuda, contacta con el soporte técnico.</p>
+        <p><a href="mailto:support@example.com">Envíanos un correo</a></p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script>
+        function loadImage(event, imgId) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById(imgId);
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+        document.getElementById('generate-pdf').addEventListener('click', function () {
+            var element = document.querySelector('body');
+            var opt = {
+                margin:       0,
+                filename:     'fotografia_termograficas.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2 },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            // Oculta los elementos que no se deben mostrar en el PDF
+            document.querySelectorAll('.pagina4-buttons, .pagina4-contact-info').forEach(function(element) {
+                element.style.display = 'none';
+            });
+
+            html2pdf().set(opt).from(element).save().then(function () {
+                // Vuelve a mostrar los elementos después de la generación del PDF
+                document.querySelectorAll('.pagina4-buttons, .pagina4-contact-info').forEach(function(element) {
+                    element.style.display = '';
+                });
+            });
+        });
+
+        function logout() {
+            sessionStorage.removeItem("loggedIn");
+            window.location.href = "index.html";
+        }
+
+        window.onload = function() {
+            if (sessionStorage.getItem("loggedIn") !== "true") {
+                alert("Por favor, inicia sesión primero.");
+                window.location.href = "index.html";
+            }
+        };
+    </script>
+
+</body>
+</html>

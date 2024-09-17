@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de Servicio Smartpack</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #292929;
+            color: #ececec;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .content {
+            width: 100%;
+            max-width: 210mm; /* Max A4 Width */
+            padding: 15mm; /* Increase padding slightly */
+            background-color: #292929;
+            box-sizing: border-box;
+            overflow: hidden;
+            position: relative;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .header img {
+            width: 100%;
+            max-width: 100px; /* Reduced logo size */
+            margin-bottom: 10px;
+        }
+        .header h1 {
+            font-size: 22px; /* Slightly increased font size */
+            margin-bottom: 5px;
+            color: #f39c12;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .header p {
+            font-size: 12px; /* Slightly increased font size */
+            color: #a5a5a5;
+        }
+        .section {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #444;
+            background-color: #333;
+            border-radius: 8px;
+        }
+        .section h2 {
+            background-color: #f39c12;
+            color: #ffffff;
+            padding: 10px;
+            text-align: center;
+            font-size: 16px; /* Slightly increased font size */
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 0;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        table, th, td {
+            border: 1px solid #555;
+        }
+        th, td {
+            padding: 8px; /* Adjust padding */
+            text-align: left;
+            color: #ececec;
+            font-size: 11px; /* Adjust font size */
+            word-wrap: break-word; /* Ensure text breaks to fit within cell */
+        }
+        th {
+            background-color: #2c2c2c;
+            color: #f39c12;
+        }
+        td {
+            background-color: #404040;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px; /* Adjust padding */
+            box-sizing: border-box;
+            border: 1px solid #555;
+            background-color: #555;
+            color: #ececec;
+            font-size: 11px; /* Adjust font size */
+        }
+        textarea {
+            height: 70px; /* Adjust height */
+            resize: vertical;
+        }
+        .image-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .image-container {
+            width: 100%;
+            max-width: 150px; /* Adjust image container size */
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #f39c12;
+            background-color: #444;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+        .image-input {
+            display: none;
+        }
+        .nav-button {
+            padding: 8px 16px;
+            margin: 10px;
+            text-decoration: none;
+            color: white;
+            background-color: #f39c12;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-block;
+        }
+        .nav-button:hover {
+            background-color: #e0a800;
+        }
+        .nav-buttons {
+            text-align: center;
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        /* Adjustments for better printing quality */
+        @media print {
+            body {
+                background-color: #fff;
+                color: #000;
+            }
+            .content {
+                background-color: #fff;
+                color: #000;
+            }
+            .section {
+                background-color: #fff;
+                color: #000;
+            }
+            .header h1 {
+                color: #000;
+            }
+            th {
+                background-color: #ddd;
+                color: #000;
+            }
+            td {
+                background-color: #fff;
+            }
+            .section h2 {
+                background-color: #ddd;
+                color: #000;
+            }
+            .nav-buttons {
+                display: none;
+            }
+        }
+        /* Custom margin for the last input field */
+        .last-section {
+            margin-top: 20px; /* Add a larger margin above the section */
+        }
+        .last-section input {
+            margin-top: 10px; /* Add space above the input field */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .content {
+                padding: 10px;
+            }
+            th, td {
+                font-size: 10px;
+                padding: 6px;
+            }
+            .section h2 {
+                font-size: 14px;
+                padding: 8px;
+            }
+            input, select, textarea {
+                font-size: 10px;
+                padding: 6px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 18px;
+            }
+            .header p {
+                font-size: 10px;
+            }
+            th, td {
+                font-size: 9px;
+                padding: 4px;
+            }
+            .section h2 {
+                font-size: 12px;
+                padding: 6px;
+            }
+            input, select, textarea {
+                font-size: 9px;
+                padding: 4px;
+            }
+            .image-container {
+                max-width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content" id="pdfContent">
+        <!-- Encabezado del Informe -->
+        <div class="header">
+            <img src="https://example.com/logo.png" alt="Smartpack Logo"> <!-- Reemplaza con la URL de tu logo -->
+            <h1>Informe de Servicio Smartpack</h1>
+            <p>www.smartpack.cl | contacto@smartpack.cl</p>
+        </div>
+
+        <!-- Primera Sección de Datos del Servicio -->
+        <div class="section">
+            <h2>Datos del Servicio - Página 1</h2>
+            <table>
+                <tr>
+                    <th>Planta</th>
+                    <td><input type="text" name="planta" placeholder="Ingrese la planta"></td>
+                </tr>
+                <tr>
+                    <th>Tipo de Servicio</th>
+                    <td><input type="text" name="tipo_servicio" placeholder="Ingrese el tipo de servicio"></td>
+                </tr>
+                <tr>
+                    <th>Fecha</th>
+                    <td><input type="date" name="fecha_servicio"></td>
+                </tr>
+                <tr>
+                    <th>Descripción</th>
+                    <td><textarea name="descripcion" placeholder="Descripción del servicio"></textarea></td>
+                </tr>
+                <tr>
+                    <th>Modelo</th>
+                    <td><input type="text" name="modelo" placeholder="Modelo"></td>
+                </tr>
+                <tr>
+                    <th>N.º de Serie</th>
+                    <td><input type="text" name="numero_serie" placeholder="Número de serie"></td>
+                </tr>
+                <tr>
+                    <th>Resumen de Visita</th>
+                    <td><textarea name="resumen_visita" placeholder="Ingrese un resumen de la visita"></textarea></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Segunda Sección de Inserción de Imágenes -->
+        <div class="section">
+            <h2>Insertar Imagen - Página 2</h2>
+            <div class="image-wrapper">
+                <div class="image-container">
+                    <label for="imageInput">
+                        <input type="file" accept="image/*" id="imageInput" onchange="previewImage(event)" class="image-input">
+                        <img id="imagePreview" alt="Previsualización de la imagen">
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tercera Sección - Otra Información o Página Adicional -->
+        <div class="section last-section">
+            <h2>Otra Información - Página 3</h2>
+            <input type="text" name="planta" placeholder="Ingrese la planta">
+        </div>
+
+        <!-- Sección de Botones de Navegación -->
+        <div class="nav-buttons" id="navButtons">
+            <button class="nav-button" id="generate-pdf" onclick="generatePDF()">Generar PDF</button>
+            <a href="pagina2.html" class="nav-button">Ir a Página 2</a>
+            <button class="nav-button" onclick="logout()">Cerrar Sesión</button>
+        </div>
+
+    </div>
+
+    <!-- Script para previsualización de la imagen -->
+    <script>
+        function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById('imagePreview');
+                output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+
+    <!-- Script para generar PDF con html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script>
+        function generatePDF() {
+            const element = document.getElementById('pdfContent');
+            const navButtons = document.getElementById('navButtons');
+            
+            // Remover botones antes de generar el PDF
+            navButtons.style.display = 'none';
+
+            html2pdf().from(element).set({
+                margin: 0,
+                filename: 'informe-servicio-smartpack.pdf',
+                html2canvas: {
+                    scale: 2, // Ajusta la escala para mantener la calidad y ajustar el contenido
+                    logging: true, // Ver los detalles en la consola del navegador
+                    useCORS: true, // Habilita el uso de recursos CORS
+                },
+                jsPDF: {
+                    format: 'a4',
+                    orientation: 'portrait',
+                    unit: 'mm',
+                    compress: true
+                }
+            }).save().then(() => {
+                // Restaurar los botones después de generar el PDF
+                navButtons.style.display = 'block';
+            }).catch((error) => {
+                // Restaurar los botones en caso de error
+                navButtons.style.display = 'block';
+                console.error("Error generating PDF:", error);
+            });
+        }
+    </script>
+    
+    <!-- Verificación de inicio de sesión -->
+    <script>
+        window.onload = function() {
+            // Verificar si el usuario ha iniciado sesión
+            if(sessionStorage.getItem("loggedIn") !== "true") {
+                alert("Por favor, inicia sesión primero.");
+                window.location.href = "index.html";
+            }
+        };
+    </script>
+
+    <!-- Función para cerrar sesión -->
+    <script>
+        function logout() {
+            // Eliminar el estado de inicio de sesión y redirigir a la página de inicio de sesión
+            sessionStorage.removeItem("loggedIn");
+            window.location.href = "index.html";
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previsualizador de PDF</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin-top: 20px;
+            color: #333;
+        }
+        .pdf-viewer {
+            width: 80%;
+            height: 800px;
+            border: 2px solid #333;
+            margin-top: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .nav-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+        .nav-button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Previsualizador de PDF</h1>
+    <iframe class="pdf-viewer" id="pdfViewer"></iframe>
+    <button class="nav-button" onclick="savePDFAndNavigate()">Enviar PDF a Outlook</button>
+
+    <script>
+        async function fetchAndCleanHTML(url) {
+            const response = await fetch(url);
+            const text = await response.text();
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = text;
+
+            const inputs = tempDiv.querySelectorAll('input[type="text"], textarea');
+            inputs.forEach(input => {
+                if (input.tagName === 'TEXTAREA') {
+                    input.innerText = input.value;
+                } else {
+                    input.setAttribute('value', input.value);
+                }
+            });
+
+            const elementsToHide = tempDiv.querySelectorAll('.no-print, button, .nav-buttons, .pagina4-buttons, .contact-info');
+            elementsToHide.forEach(element => element.style.display = 'none');
+
+            return tempDiv.innerHTML;
+        }
+
+        async function createAndShowPDF() {
+            const page1Content = await fetchAndCleanHTML('pagina1.html');
+            const page2Content = await fetchAndCleanHTML('pagina2.html');
+            const page3Content = await fetchAndCleanHTML('pagina3.html');
+            let page4Content = await fetchAndCleanHTML('pagina4.html');
+            const page5Content = await fetchAndCleanHTML('pagina5.html');
+
+            const tempContainer = document.createElement('div');
+            tempContainer.innerHTML = page4Content;
+
+            const images = tempContainer.querySelectorAll('img');
+            images.forEach(img => {
+                img.style.maxWidth = '100%';
+                img.style.maxHeight = '100px';
+            });
+
+            const textAreas = tempContainer.querySelectorAll('textarea, input[type="text"]');
+            textAreas.forEach(element => {
+                element.style.fontSize = '6px';
+                element.style.height = '15px';
+            });
+
+            page4Content = tempContainer.innerHTML;
+
+            const container = document.createElement('div');
+            container.innerHTML = `
+                <div style="page-break-after: always; width: 100%; box-sizing: border-box;">
+                    ${page1Content}
+                </div>
+                <div style="page-break-after: always; width: 100%; box-sizing: border-box;">
+                    ${page2Content}
+                </div>
+                <div style="page-break-after: always; width: 100%; box-sizing: border-box;">
+                    ${page3Content}
+                </div>
+                <div style="page-break-after: always; width: calc(100% - 0mm); box-sizing: border-box; margin: 0 auto; background-color: #292929; padding-left: 10mm; padding-right: 10mm;">
+                    ${page4Content}
+                </div>
+                <div style="page-break-after: always; width: 100%; box-sizing: border-box;">
+                    ${page5Content}
+                </div>
+            `;
+            
+            container.style.width = '210mm';
+            container.style.margin = '0 auto';
+            container.style.backgroundColor = '#292929';
+
+            const options = {
+                margin: 0,
+                filename: 'documento_combinado.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            return html2pdf().from(container).set(options).outputPdf('blob');
+        }
+
+        async function savePDFAndNavigate() {
+            const pdfBlob = await createAndShowPDF();
+            const pdfUrl = URL.createObjectURL(pdfBlob);
+            localStorage.setItem('pdfBlobUrl', pdfUrl); // Guardar la URL del Blob en localStorage
+            window.location.href = 'outlook.html'; // Navegar a la página outlook.html
+        }
+
+        createAndShowPDF().then(blob => {
+            const pdfUrl = URL.createObjectURL(blob);
+            document.getElementById('pdfViewer').src = pdfUrl;
+        });
+    </script>
+</body>
+</html>
